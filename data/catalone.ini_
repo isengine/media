@@ -1,0 +1,67 @@
+{
+	
+	"folder" : "",
+	"type" : null,
+	"sort" : null,
+	"special" : null,
+	"style" : null,
+	"seo" : true,
+	
+	"slider" : {
+		"enable" : false
+	},
+	
+	"mainslider" : {
+		"enable" : false
+	},
+	
+	"gallery" : {
+		
+		"enable" : true,
+		"captions" : true,
+		"counter" : true,
+		"thumbs" : false,
+		"loop" : true,
+		
+		"options" : {
+			//"infobar" : false,
+			"buttons" : [
+				//"zoom",
+				//"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				//"thumbs",
+				"close"
+			]
+		}
+		
+	},
+	
+	"mansory" : {
+		"enable" : false
+	},
+	
+	"elements" : {
+	},
+	"classes" : {
+	},
+	
+	"labels" : {
+		"lang" : {
+			"ru" : {
+				"next" : "след",
+				"prev" : "пред",
+				"counter" : "",
+				"separate" : " из "
+			},
+			"en" : {
+				"next" : "next",
+				"prev" : "prev",
+				"counter" : "",
+				"separate" : "&nbsp;/&nbsp;"
+			}
+		}
+	}
+	
+}
