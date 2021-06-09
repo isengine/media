@@ -93,7 +93,7 @@ class Media extends Master {
 		$by = !$match ? $sort[0] : 'name';
 		
 		if ($type === 'random') {
-			$this -> list -> randomize();
+			$this -> list -> random();
 			return;
 		}
 		
