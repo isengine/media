@@ -10,7 +10,6 @@ use is\Helpers\Parser;
 
 use is\Masters\Modules\Master;
 use is\Masters\View;
-use is\Components\Config;
 use is\Components\Collection;
 
 class Media extends Master {
@@ -26,12 +25,8 @@ class Media extends Master {
 		
 		$sets = &$this -> settings;
 		
-		$config = Config::getInstance();
-		
 		$this -> url = '/' . Strings::replace($sets['folder'], ':', '/') . '/';
-		$this -> real = $config -> get('path:site') . Strings::replace($sets['folder'], ':', DS) . DS;
-		
-		unset($config);
+		$this -> real = DI . Strings::replace($sets['folder'], ':', DS) . DS;
 		
 		$this -> list = new Collection;
 		
