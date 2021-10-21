@@ -7,8 +7,8 @@ use is\Helpers\Objects;
 use is\Helpers\Strings;
 use is\Helpers\Parser;
 
-$instance = $object -> get('instance');
-$sets = &$object -> settings;
+$instance = $this -> get('instance');
+$sets = &$this -> settings;
 
 $slider = $sets['slider']['enable'];
 $slideshow = $sets['slideshow']['enable'];
@@ -21,12 +21,12 @@ if (!$slideshow && !$slider) {
 <div class="<?= $sets['gallery']['classes']['container']; ?>">
 
 <?php
-$object -> list -> iterate(function($item, $key, $position) use ($object) {
+$this -> list -> iterate(function($item, $key, $position) use ($this) {
 	$name = $item -> getEntryKey('name');
 	$data = $item -> getData();
 	//echo print_r($key, 1) . '<br>';
 	//echo print_r($data, 1) . '<br>';
-	$sets = &$object -> settings;
+	$sets = &$this -> settings;
 	
 /*
 <a class="<?= $sets['gallery']['classes']['item']; ?>" data-fancybox="gallery" href="<?= $data['url']; ?>">
