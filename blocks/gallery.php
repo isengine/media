@@ -8,13 +8,14 @@ use is\Helpers\Strings;
 use is\Helpers\Parser;
 
 $instance = $this -> get('instance');
-$sets = &$this -> settings;
+$sets = $this -> settings;
 
-$slider = $sets['slider']['enable'];
-$slideshow = $sets['slideshow']['enable'];
-$gallery = $sets['gallery']['enable'];
+$sets['gallery']['settings']['selector'] = '.' . $sets['gallery']['classes']['item'];
 
-if (!$slideshow && !$slider) {
+if (
+	!$sets['slideshow']['enable'] &&
+	!$sets['slider']['enable']
+) {
 
 ?>
 
@@ -49,9 +50,3 @@ $this -> list -> iterate(function($item, $key, $position) use ($this) {
 <?php
 }
 ?>
-
-<script>
-$().fancybox(
-<?= Parser::toJson($sets['gallery']['settings']); ?>
-);
-</script>

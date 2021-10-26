@@ -8,7 +8,11 @@ use is\Helpers\Strings;
 use is\Helpers\Parser;
 
 $instance = $this -> get('instance');
-$sets = &$this -> settings;
+$sets = $this -> settings;
+
+if ($sets['slider']['enable']) {
+	$sets['slideshow']['settings']['asNavFor'] = '.' . $sets['slider']['classes']['container'];
+}
 
 ?>
 
@@ -43,9 +47,3 @@ $this -> list -> iterate(function($item, $key, $position) use ($this) {
 ?>
 
 </div>
-
-<script>
-$('.<?= $sets['slideshow']['classes']['container']; ?>').slick(
-<?= Parser::toJson($sets['slideshow']['settings']); ?>
-);
-</script>

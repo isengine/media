@@ -8,11 +8,8 @@ use is\Helpers\Strings;
 use is\Helpers\Parser;
 
 $instance = $this -> get('instance');
-$sets = &$this -> settings;
+$sets = $this -> settings;
 
-$slider = $sets['slider']['enable'];
-$slideshow = $sets['slideshow']['enable'];
-$gallery = $sets['gallery']['enable'];
 //echo print_r($this, 1);
 
 //$this -> eget('container') -> addClass('new');
@@ -20,22 +17,15 @@ $gallery = $sets['gallery']['enable'];
 //$this -> eget('container') -> close(true);
 //$this -> eget('container') -> print();
 
-if ($slider) {
-	if ($slideshow) {
-		$sets['slider']['settings']['asNavFor'] = '.' . $sets['slideshow']['classes']['container'];
-	}
+if ($sets['slider']['enable']) {
 	$this -> block('slider');
 }
 
-if ($slideshow) {
-	if ($slider) {
-		$sets['slideshow']['settings']['asNavFor'] = '.' . $sets['slider']['classes']['container'];
-	}
+if ($sets['slideshow']['enable']) {
 	$this -> block('slideshow');
 }
 
-if ($gallery) {
-	$sets['gallery']['settings']['selector'] = '.' . $sets['gallery']['classes']['item'];
+if ($sets['gallery']['enable']) {
 	$this -> block('gallery');
 }
 
