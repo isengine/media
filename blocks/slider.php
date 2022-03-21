@@ -19,14 +19,12 @@ if ($sets['slideshow']['enable']) {
 <div class="<?= $sets['slider']['classes']['container']; ?>">
 
 <?php
-$this -> list -> iterate(function($item, $key, $position) use ($this) {
+$this -> list -> iterate(function($item, $key, $position) use ($sets) {
 	
 	$name = $item -> getEntryKey('name');
 	$data = $item -> getData();
 	//echo print_r($key, 1) . '<br>';
 	//echo print_r($data, 1) . '<br>';
-	
-	$sets = &$this -> settings;
 	
 	$slider = $sets['slider']['enable'];
 	$slideshow = $sets['slideshow']['enable'];

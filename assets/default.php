@@ -14,20 +14,23 @@ $slider = $sets['slider']['enable'];
 $slideshow = $sets['slideshow']['enable'];
 $gallery = $sets['gallery']['enable'];
 
+$slider_class = '.' . Strings::replace($sets['slider']['classes']['container'], ' ', '.');
+$slideshow_class = '.' . Strings::replace($sets['slideshow']['classes']['container'], ' ', '.');
+
 $code = null;
 
 if ($slider) {
 	if ($slideshow) {
-		$sets['slider']['settings']['asNavFor'] = '.' . $sets['slideshow']['classes']['container'];
+		$sets['slider']['settings']['asNavFor'] = $slideshow_class;
 	}
-	$code .= '$(".' . $sets['slider']['classes']['container'] . '").slick(' . Parser::toJson($sets['slider']['settings']) . ');';
+	$code .= '$("' . $slider_class . '").slick(' . Parser::toJson($sets['slider']['settings']) . ');';
 }
 
 if ($slideshow) {
 	if ($slider) {
-		$sets['slideshow']['settings']['asNavFor'] = '.' . $sets['slider']['classes']['container'];
+		$sets['slideshow']['settings']['asNavFor'] = $slider_class;
 	}
-	$code .= '$(".' . $sets['slideshow']['classes']['container'] . '").slick(' . Parser::toJson($sets['slideshow']['settings'] . ');';
+	$code .= '$("' . $slideshow_class . '").slick(' . Parser::toJson($sets['slideshow']['settings']) . ');';
 }
 
 if ($gallery) {

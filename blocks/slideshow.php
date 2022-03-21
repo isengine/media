@@ -19,12 +19,11 @@ if ($sets['slider']['enable']) {
 <div class="<?= $sets['slideshow']['classes']['container']; ?>">
 
 <?php
-$this -> list -> iterate(function($item, $key, $position) use ($this) {
+$this -> list -> iterate(function($item, $key, $position) use ($sets) {
 	$name = $item -> getEntryKey('name');
 	$data = $item -> getData();
 	//echo print_r($key, 1) . '<br>';
 	//echo print_r($data, 1) . '<br>';
-	$sets = &$this -> settings;
 	
 	$slider = $sets['slider']['enable'];
 	$slideshow = $sets['slideshow']['enable'];
@@ -33,13 +32,13 @@ $this -> list -> iterate(function($item, $key, $position) use ($this) {
 	if ($gallery && !$slider) {
 ?>
 	<a class="<?= $sets['slideshow']['classes']['item'] . ' ' . $sets['gallery']['classes']['item']; ?>" href="<?= $data['url']; ?>">
-		<img data-lazy="<?= $data['url']; ?>" class="<?= $sets['slideshow']['classes']['image']; ?>" />
+		<img <?= $sets['slideshow']['lazy'] ? 'data-lazy' : 'src'; ?>="<?= $data['url']; ?>" class="<?= $sets['slideshow']['classes']['image']; ?>" />
 	</a>
 <?php
 	} else {
 ?>
 <div class="<?= $sets['slideshow']['classes']['item']; ?>">
-	<img data-lazy="<?= $data['url']; ?>" class="<?= $sets['slideshow']['classes']['image']; ?>" />
+	<img <?= $sets['slideshow']['lazy'] ? 'data-lazy' : 'src'; ?>="<?= $data['url']; ?>" class="<?= $sets['slideshow']['classes']['image']; ?>" />
 </div>
 <?php
 	}
