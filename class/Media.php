@@ -7,7 +7,6 @@ use is\Helpers\Objects;
 use is\Helpers\Strings;
 use is\Helpers\Local;
 use is\Helpers\Parser;
-
 use is\Masters\Modules\Master;
 use is\Masters\View;
 use is\Components\Collection;
@@ -45,7 +44,7 @@ class Media extends Master
     {
         $sets = &$this->settings;
 
-        $folder = Local::search($this->real, [
+        $folder = Local::list($this->real, [
             'extension' => $sets['extensions'],
             'subfolders' => $sets['subfolders'],
             'merge' => true,
@@ -103,7 +102,7 @@ class Media extends Master
 
     public function description()
     {
-        $folders = Local::search($this->real, [
+        $folders = Local::list($this->real, [
             'merge' => true,
             'return' => 'folders'
         ]);
